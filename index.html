@@ -30,7 +30,7 @@
   }
 
   .home {
-    flex-direction: column;
+    flex-direction: column-reverse;
     text-align: center;
   }
 
@@ -66,7 +66,10 @@
     font-size: 40px;
     
   }
-
+.home {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
   .contact-subheading,
   .project-card p,
   .about-meee p {
@@ -106,12 +109,14 @@
 }
 
 @media screen and (max-width: 768px) {
-
-
+.nav {display: flex;flex-direction: row;}
 
   .about-full {
     display: none;
   }
+.home #abcd{display: flex;justify-content: center;}
+
+
 
   .about-short {
     display: block;
@@ -126,6 +131,7 @@
 
 
     <header class="nav">
+      
       <img src="Screenshot 2025-07-02 134142.png" alt="" height="40px" width="40px" style="border-radius: 100px;margin-top: 0px;">
         <a href="https://www.instagram.com/_adhi_lllhh?igsh=NzlpbHNreHMwMm9i&utm_source=qr" target="_blank" class="logo" >ADHIL</a>
        

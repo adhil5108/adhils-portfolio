@@ -366,14 +366,14 @@ form textarea {
     background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
   }
 
-  /* .nav {
-    flex-direction: column;
+ /* .nav {
+    flex-direction:row;
     align-items: center;
     padding: 15px 10px;
     
     
   }
-
+  
   .navbar {
     display: flex !important;
     flex-direction: column; align-items: center;
@@ -505,7 +505,8 @@ form textarea {
   }
 
   #submit:hover {
-    background: darkorange;
+    background: rgb(250, 249, 248);
+    color: black;
   }
 
   .footer {

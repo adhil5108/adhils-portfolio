@@ -10,21 +10,10 @@
      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
      <style>
-            .hamburger {
-  display: none;
-  font-size: 28px;
-  color: white;
-  cursor: pointer;
 
-
-}
 
 @media screen and (max-width: 1024px) {
-    .hamburger {
-    display: block;
-    margin-left: auto;
-    padding-right: 20px;
-  }
+ 
   .nav {
     padding: 20px 5%;
     flex-direction: column;
@@ -160,9 +149,9 @@
       
       <img src="Screenshot 2025-07-02 134142.png" alt="" height="40px" width="40px" style="border-radius: 100px;margin-top: 0px;">
         <a href="https://www.instagram.com/_adhi_lllhh?igsh=NzlpbHNreHMwMm9i&utm_source=qr" target="_blank" class="logo" >ADHIL</a>
-        <div class="hamburger">&#9776;</div>
+        
        
-          <div class="navbar" id="navbar" style="display:flex; justify-content:  space-around;    margin: 0px 0px 0px 533px"> 
+          <div class="navbar" id="navbar"> 
              <a href="#" >HOME</a>
             <a href="#about"  >AboutMe</a>
             <a href="#skills"  >Skills</a>
@@ -401,26 +390,5 @@
 
   </div>
 </footer>
-
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const hamburger = document.querySelector(".hamburger");
-    const navbar = document.getElementById("navbar");
-
-    hamburger.addEventListener("click", function () {
-      navbar.classList.toggle("show");
-    });
-  });
-</script>
-
-
-
-
-
-
-
-
 </body>
 </html>

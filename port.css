@@ -358,6 +358,10 @@ form textarea {
 #abcd img:hover{  transform: translateY(-5px);
   transition: ease 0.7s;}
 #abcd img{margin-left: 15px;}
+.navbar {
+  justify-content: space-around;
+  margin-left: auto;
+}
 
 
 @media screen and (max-width: 768px) {

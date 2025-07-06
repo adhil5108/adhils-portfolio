@@ -115,11 +115,19 @@
   }
 }
 @media screen and (max-width: 768px) {
-
   .navbar {
-    display: none !important;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+ 
+    padding: 20px;
+  }
+
+  .navbar.show {
+    display: flex !important;
   }
 }
+
 
 @media screen and (max-width: 768px) {
 .nav {display: flex;flex-direction: row;}
@@ -154,7 +162,7 @@
         <a href="https://www.instagram.com/_adhi_lllhh?igsh=NzlpbHNreHMwMm9i&utm_source=qr" target="_blank" class="logo" >ADHIL</a>
         <div class="hamburger">&#9776;</div>
        
-          <div class="navbar" style="display:flex; justify-content:  space-around;    margin: 0px 0px 0px 533px"> 
+          <div class="navbar" id="navbar" style="display:flex; justify-content:  space-around;    margin: 0px 0px 0px 533px"> 
              <a href="#" >HOME</a>
             <a href="#about"  >AboutMe</a>
             <a href="#skills"  >Skills</a>

@@ -1,417 +1,483 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="cropped_circle_image.png">
-    <title>adhil-portfolio</title>
-    <link rel="stylesheet" href="port.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Adhil — Portfolio</title>
 
-     <style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+  <link rel="icon" href="cropped_circle_image.png">
 
-@media screen and (max-width: 1024px) {
- 
-  .nav {
-    padding: 20px 5%;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar {
-    margin: 20px 0 0 0 !important;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-  }
-
-  .navbar a {
-    margin: 10px 0;
-  }
-
-  .home {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-
-  .imgbox {
-    margin-top: 30px;
-  }
-
-  .skills-grid,
-  .project-grid,
-  .contact-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .form {
-    width: 100%;max-width: 100%;
-  }
-
-  .map-info {
-    width: 100%;max-width: 100%;
-  }
-
-  .map iframe {
-    height: 250px;
-  }
-  
-}
-
-@media screen and (max-width: 768px) {
-  .skills-heading,
-  .projects-title,
-  .contact-heading {
-    font-size: 40px;
-    
-  }
-.home {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-  .contact-subheading,
-  .project-card p,
-  .about-meee p {
-    font-size: 18px;
-  }
-
-  .about-meee h1,
-  .projects-title,
-  .skills-heading {
-    font-size: 45px;
-  }
-
-  .skill-card,
-  .project-card {
-    width: 90%;
-  }
-
-  .contact-info {
-    font-size: 14px;
-  }
-
-  form label,
-  form input,
-  form textarea {
-    width: 100%;
-  }
-
-  #submit {
-    align-self: center;
-  }
-}
-@media screen and (max-width: 768px) {
-  .navbar {
-    display: none;
-    flex-direction: column;
-    width: 100%;
- 
-    padding: 20px;
-  }
-
-  .navbar.show {
-    display: flex !important;
-  }
-}
-
-
-@media screen and (max-width: 768px) {
-.nav {display: flex;flex-direction: row;}
-
-  .about-full {
-    display: none;
-  }
-.home #abcd{display: flex;justify-content: center;}
-.skill-card{height: 150px;}
-.skill-card img{height: 60px;width: 60px;
-
-  
-}
-.skill-card a{padding: 10px 20px; }
-
-
-  .about-short {
-    display: block;
-  }
-}
-
-
-</style>
-
+  <style>
+    :root{
+      --bg:#06060b;
+      --panel: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      --accent1: #ff1ea8;
+      --accent2: #00e5ff;
+      --muted: #99a0b3;
+      --glass: rgba(255,255,255,0.03);
+      --radius: 14px;
+      --max-width: 1200px;
+      --shadow-neon: 0 8px 30px rgba(0,0,0,0.6);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(0,229,255,0.06), transparent 8%),
+        radial-gradient(900px 450px at 90% 85%, rgba(255,30,168,0.05), transparent 6%),
+        linear-gradient(180deg,#02020a,#07030f 50%,#02030a);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:60px;
+    }
+    .wrap{
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 28px;
+    }
+    header.topbar{
+      position: sticky;
+      top: 12px;
+      z-index: 100;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: 999px;
+      padding: 10px 14px;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      justify-content:space-between;
+      box-shadow: var(--shadow-neon);
+      backdrop-filter: blur(8px) saturate(1.2);
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;
+    }
+    .brand img{
+      width:44px;height:44px;border-radius:50%;object-fit:cover;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.6), 0 0 18px rgba(255,30,168,0.06);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .logo{
+      font-weight:700;font-size:18px;color:#fff;letter-spacing:1px;
+      display:inline-block;
+    }
+    nav.navlinks{
+      display:flex;gap:14px;align-items:center;
+    }
+    nav.navlinks a{
+      color:var(--muted);padding:9px 12px;border-radius:10px;font-weight:600;font-size:14px;
+      text-decoration:none;transition:all .22s;
+      position:relative;
+    }
+    nav.navlinks a:hover{ color: #fff; transform:translateY(-3px); }
+    nav.navlinks a.active{ color:var(--accent1); box-shadow: 0 6px 30px rgba(255,30,168,0.06); }
+    .menu-toggle{ display:none; background:transparent; border:none; color:var(--muted); font-size:20px; padding:6px; }
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:center;
+      padding:48px 0 36px;
+    }
+    .hero-card{
+      background:var(--panel);
+      border-radius:var(--radius);
+      padding:36px;
+      position:relative;
+      overflow:hidden;
+      box-shadow: 0 10px 40px rgba(2,2,6,0.6);
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute; inset:auto  -120px -120px auto;
+      width:320px;height:320px;
+      background: radial-gradient(circle at 30% 40%, rgba(0,229,255,0.12), transparent 20%), radial-gradient(circle at 70% 60%, rgba(255,30,168,0.08), transparent 32%);
+      transform: rotate(12deg);
+      pointer-events:none;
+    }
+    .intro h1{
+      font-size:42px; margin-bottom:8px; font-weight:700;
+      letter-spacing:0.6px;
+    }
+    .intro h1 span{ color:var(--accent1) }
+    .intro p.lead{
+      color:var(--muted); font-size:15px; margin-bottom:18px; max-width:62ch;
+    }
+    .cta{
+      display:flex; gap:12px; margin-top:18px;
+    }
+    .btn {
+      background: linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:black;
+      font-weight:700;
+      padding:11px 18px;
+      border-radius:12px;
+      text-decoration:none;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.5), 0 0 28px rgba(255,30,168,0.08);
+      transition: transform .18s ease, box-shadow .18s;
+    }
+    .btn:hover{ transform:translateY(-4px); }
+    .ghost {
+      background:transparent;border:1px solid rgba(255,255,255,0.06);
+      color:var(--muted); padding:10px 16px; border-radius:10px; text-decoration:none;
+      display:inline-flex; align-items:center; gap:10px;
+    }
+    .ghost:hover{ color:#fff; transform:translateY(-3px); }
+    .hero-image{
+      display:flex;align-items:center;justify-content:center;
+      gap:12px;
+    }
+    .avatar{
+      width:360px;height:360px;border-radius:20px;object-fit:cover;
+      border:6px solid rgba(255,255,255,0.02);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 60px rgba(0,229,255,0.03);
+      transition: transform .35s ease, border-radius .35s;
+    }
+    .avatar:hover{ transform:scale(1.03); border-radius:18px; }
+    .subrow{ display:flex; gap:12px; margin-top:18px; flex-wrap:wrap; align-items:center; }
+    .pill{
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:10px;padding:8px 12px;font-weight:600;color:var(--muted);font-size:13px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    section.about{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:22px;
+    }
+    .about .panel{
+      background:var(--panel); padding:26px;border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,0.02);
+      box-shadow: var(--shadow-neon);
+    }
+    .about h2{ font-size:26px; margin-bottom:8px; color:#fff }
+    .about p{ color:var(--muted); font-size:15px; line-height:1.6 }
+    .skills-grid{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    .skill{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+      padding:14px;border-radius:12px; text-align:center; border:1px solid rgba(255,255,255,0.02);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .skill:hover{ transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.6) }
+    .skill img{ width:72px;height:72px;object-fit:contain; margin-bottom:8px; filter: drop-shadow(0 4px 20px rgba(0,0,0,0.6)); }
+    .skill b{ display:block; font-weight:700; margin-top:6px; color:#fff }
+    section.projects{ margin-top:36px }
+    .projects-grid{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:18px;
+    }
+    .project{
+      padding:20px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.02);
+      transition: transform .22s, box-shadow .22s, background .22s;
+    }
+    .project:hover{
+      transform: translateY(-14px) scale(1.02);
+      background: linear-gradient(180deg, rgba(255,30,168,0.06), rgba(0,229,255,0.03));
+      box-shadow: 0 18px 60px rgba(0,0,0,0.6), 0 0 40px rgba(255,30,168,0.05);
+    }
+    .project .icon{
+      width:66px;height:66px;border-radius:12px;background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      display:flex;align-items:center;justify-content:center;margin-bottom:10px;border:1px solid rgba(255,255,255,0.02)
+    }
+    .project .icon img{ width:42px; height:42px; object-fit:contain; }
+    .project h3{ font-size:18px;margin-bottom:8px;color:#fff }
+    .project p{ font-size:13px;color:var(--muted) }
+    .project a.link{ display:inline-block;margin-top:12px;color:var(--accent2);text-decoration:none;font-weight:700 }
+    .contact-wrap{ display:grid; grid-template-columns: 1fr 420px; gap:22px; margin-top:34px }
+    .contact-panel{ padding:20px;border-radius:16px;background:var(--panel); border:1px solid rgba(255,255,255,0.02) }
+    .contact-panel h3{ margin-bottom:12px }
+    .contact-info p{ color:var(--muted); margin-bottom:10px; font-size:14px }
+    .map{ border-radius:10px; overflow:hidden; border:1px solid rgba(255,255,255,0.02) }
+    .map iframe{ width:100%; height:260px; display:block; border:0 }
+    form.contact-form{ display:flex; flex-direction:column; gap:12px }
+    form label{ color:var(--muted); font-weight:600; font-size:13px }
+    form input, form textarea{
+      background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03);
+      padding:12px;border-radius:10px;color:#e9f3ff;font-size:14px;
+    }
+    form button[type="submit"]{
+      margin-top:6px;padding:12px 16px;border-radius:12px;border:none;
+      background: linear-gradient(90deg,var(--accent1),var(--accent2));
+      font-weight:700;color:black;cursor:pointer;
+    }
+    footer{
+      margin-top:44px;text-align:center;color:var(--muted); font-size:14px;
+      padding-top:28px;
+    }
+    .socials{ display:flex; gap:16px; justify-content:center; margin-top:12px }
+    .socials a{ color:var(--muted); width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;
+      border:1px solid rgba(255,255,255,0.02); text-decoration:none }
+    .socials a:hover{ color:#fff; transform:translateY(-4px) }
+    @media (max-width:1000px){
+      .hero{ grid-template-columns:1fr 320px }
+      .projects-grid{ grid-template-columns: repeat(2,1fr) }
+      .skills-grid{ grid-template-columns: repeat(2,1fr) }
+      .contact-wrap{ grid-template-columns: 1fr }
+      section.about{ grid-template-columns:1fr }
+    }
+    @media (max-width:720px){
+      header.topbar{ flex-direction:row; gap:8px; padding:10px }
+      nav.navlinks{ display:none }
+      .menu-toggle{ display:inline-block }
+      .hero{ grid-template-columns: 1fr; padding:20px 0 }
+      .hero-image{ justify-content:center }
+      .avatar{ width:260px;height:260px }
+      .projects-grid{ grid-template-columns: 1fr }
+      .skills-grid{ grid-template-columns: 1fr }
+      .hero-card{ padding:20px }
+      .wrap{ padding:18px }
+    }
+    .fade-in{ animation: fadeUp .6s ease both }
+    @keyframes fadeUp{ from{ opacity:0; transform:translateY(6px)} to{ opacity:1; transform:none } }
+    .muted{ color:var(--muted) }
+    .accent{ color:var(--accent1) }
+    .mono{ font-family: "JetBrains Mono", monospace; font-size:13px; color:var(--muted) }
+  </style>
 </head>
 <body>
+  <div class="wrap">
 
+    <header class="topbar fade-in">
+      <div class="brand">
+        <img src="cropped_circle_image.png" alt="Adhil avatar">
+        <div>
+          <div class="logo">ADHIL</div>
+          <div class="mono">Full-Stack Developer</div>
+        </div>
+      </div>
 
-    <header class="nav">
-      
-      <img src="Screenshot 2025-07-02 134142.png" alt="" height="40px" width="40px" style="border-radius: 100px;margin-top: 0px;">
-        <a href="https://www.instagram.com/_adhi_lllhh?igsh=NzlpbHNreHMwMm9i&utm_source=qr" target="_blank" class="logo" >ADHIL</a>
-        
-       
-          <div class="navbar" id="navbar"> 
-             <a href="#" >HOME</a>
-            <a href="#about"  >AboutMe</a>
-            <a href="#skills"  >Skills</a>
-            <a href="#Projects"  >Projects</a>
-             <a href="#contact" >Contact</a>
-           </div>
-       
+      <nav class="navlinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-       
+      <button class="menu-toggle" id="menuBtn" aria-expanded="false">
+        <i class="fa fa-bars"></i>
+      </button>
     </header>
 
+    <main id="home" class="hero">
+      <section class="hero-card fade-in">
+        <div class="intro">
+          <h1>Hi — I'm <span>Adhil</span></h1>
+          <p class="lead">Full-stack developer building clean interfaces with React and solid backend systems using Java & Spring Boot. I focus on accessible, maintainable code and polished user experiences.</p>
 
-<section class="home" id="home" style="padding-top: 100px; display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
-    <div class="homee">
+          <div class="subrow">
+            <div class="pill">React • Spring Boot</div>
+            <div class="pill">Postgres • Redis • Docker</div>
+            <div class="pill">Intern @ Bridgeon</div>
+          </div>
 
-        <h2 style="font-size:50px; font-weight: 500; color: white;">Hi! I'm</h2>
+          <div class="cta">
+            <a href="#projects" class="btn">View Projects</a>
+            <a href="#contact" class="ghost"><i class="fa fa-envelope-o"></i> Hire me</a>
+          </div>
 
-        <h1><span style="font-size:50px; font-weight: 500; color: rgb(187, 22, 121)">Adhil</span></h1>
-       <div> <h6 style="font-size: 50px; font-weight: 500; color: white;" class="typewriter">Web Developer</h6></div>
+         
+        </div>
+      </section>
 
-<div>
-        <div class="btn" style="margin-top: 30px;">
-            <a href="#Projects" class="mywork" style="padding: 15px 30px; background-color: rgb(187, 22, 121); border-radius: 5px; color: white; font-size: 20px;">My work</a>
-            <a href="#contact" class="hireme" style="padding: 15px 30px; background-color: rgb(187, 22, 121); border-radius: 5px; color: white; font-size: 20px; margin-left: 18px;">Hire me</a>
-        </div></div>
-<br>
+      <aside class="hero-image fade-in">
+        <img src="IMG_7123.png" alt="Avatar" class="avatar">
+      </aside>
+    </main>
 
+    <section id="about" class="about">
+      <div class="panel fade-in">
+        <h2>About Me</h2>
+        <p>
+          I'm a Full-Stack Developer with a passion for creating performant UI and rock-solid APIs.
+          My stack centers on React for the frontend and Java + Spring Boot on the backend. I enjoy
+          component-driven design, testable code, and simple UX that scales.
+        </p>
+        <p class="muted" style="margin-top:12px;">
+          Currently working on real-world projects as a Frontend & Backend Developer Intern at Bridgeon Solutions.
+        </p>
+        <div style="margin-top:14px;">
+          <a href="#contact" class="btn">Let's talk</a>
+        </div>
+      </div>
 
-      <div style="display: flex;margin-top: 10px;" id="abcd"><a href="https://www.instagram.com/_adhi_lllhh?igsh=NzlpbHNreHMwMm9i&utm_source=qr" target="_blank">
-      <img src="instagram.png" alt="Instagram" style="margin-left: 4px;"/>
-    </a>
-    <a href="https://www.linkedin.com/in/muhammed-hadil-v-494b7b36b" target="_blank">
-      <img src="linkedin.png" alt="LinkedIn" height="24px" width="24px"/>
-    </a>
-    <a href="https://github.com/adhil5108" target="_blank">
-      <img src="github.png" alt="GitHub" />
-    </a></div>
+      <div class="panel fade-in" id="skills">
+        <h2>Key Skills</h2>
+        <div class="skills-grid" style="margin-top:12px">
+          <div class="skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+            <b>React</b>
+          </div>
+          <div class="skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+            <b>Java</b>
+          </div>
+          <div class="skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+            <b>PostgreSQL</b>
+          </div>
+          <div class="skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" alt="Redux">
+            <b>Redux / Context</b>
+          </div>
+          <div class="skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+            <b>Docker</b>
+          </div>
+          <div class="skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+            <b>Git & GitHub</b>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    </div>
-    
+    <section id="projects" class="projects fade-in">
+      <h2 style="margin-top:26px">Selected Projects</h2>
+      <div class="projects-grid" style="margin-top:14px">
+        <article class="project">
+          <div class="icon"><img src="https://img.icons8.com/fluency/96/000000/shopping-cart.png" width="120"></div>
+          <h3>TimeLux — Watch E-Commerce</h3>
+          <p>React + Tailwind e-commerce with filtering, cart & checkout. Smooth UX for buyers.</p>
+          <a class="link" href="https://github.com/adhil5108/E-commerce.git" target="_blank">View project →</a>
+        </article>
 
-    <div class="imgbox">
-        <img class="img" src="IMG_7123.png" style="height: 400px; width: 400px;" loading="lazy" alt="my image">
-    </div>
-</section>
+        <article class="project">
+          <div class="icon"><img src="https://img.icons8.com/fluency/96/000000/food-cart.png" alt=""></div>
+          <h3>Foodie Express</h3>
+          <p>Food delivery UI built with React, offering restaurant browsing, cart flow, order status.</p>
+          <a class="link" href="https://github.com/adhil5108/Foodie-Express.git" target="_blank">View project →</a>
+        </article>
 
-<br><br><br>
+        <article class="project">
+          <div class="icon"><img src="https://img.icons8.com/fluency/96/000000/blog.png" alt=""></div>
+          <h3>Echo & Ink — Blog App</h3>
+          <p>Blog platform showing posts, categories; clean UI and smooth navigation.</p>
+          <a class="link" href="https://github.com/adhil5108/blog-app.git" target="_blank">View project →</a>
+        </article>
 
+        <article class="project">
+          <div class="icon"><img src="https://img.icons8.com/fluency/96/000000/administrative-tools.png" alt=""></div>
+          <h3>Task Manager API</h3>
+          <p>Spring Boot REST API with JWT auth, task CRUD, categories, and tests included.</p>
+          <a class="link" href="https://github.com/adhil5108/spring-task-management.git" target="_blank">View repo →</a>
+        </article>
 
- 
-<section class="about" id="about" style="padding: 60px 40px;">
-  <div class="about-meee" style="max-width: 900px; margin: auto; text-align: center; color: white;">
+        <article class="project">
+          <div class="icon"><img src="https://img.icons8.com/fluency/96/000000/shopping-cart.png" alt=""></div>
+          <h3>E-Commerce Backend</h3>
+          <p>PostgreSQL + Redis + Docker backend for e-commerce, with admin APIs and caching.</p>
+          <a class="link" href="https://github.com/adhil5108/E-commerce-MVP-java.git" target="_blank">View repo →</a>
+        </article>
+      </div>
+    </section>
 
+    <section id="contact" class="contact-wrap fade-in">
+      <div class="contact-panel">
+        <h3>Contact Me</h3>
+        <p class="muted">Need a web developer? I’d love to hear about your project — feel free to reach out!</p>
+        <div class="contact-info" style="margin-top:12px">
+          <p><strong>Address</strong><br>Kottakkal, Malappuram, Kerala, India</p>
+          <p><strong>Email</strong><br><a href="mailto:Muhammedhadilv@gmail.com" style="color:var(--accent2);text-decoration:none">Muhammedhadilv@gmail.com</a></p>
+          <p><strong>Phone</strong><br>+91-7994105877</p>
+        </div>
+        <div style="margin-top:14px" class="socials">
+          <a href="https://www.instagram.com/_adhi_lllhh" target="_blank" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/muhammed-hadil-v-494b7b36b" target="_blank" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+          <a href="https://github.com/adhil5108" target="_blank" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        </div>
+        <div style="margin-top:16px" class="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.92310514766!2d76.10917977496254!3d11.119104789051296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba637f0ab2380b7%3A0x475a55d6de061011!2sBridgeon!5e0!3m2!1sen!2sin!4v1723025221314!5m2!1sen!2sin" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
 
-    
-    <h1 style="font-size: 60px;">About <span style="color: orangered;">Me</span></h1>
-    <h2 style="font-size: 50px; margin-top: 10px;">Web <span style="color: white;">Developer</span></h2>
+      <aside class="contact-panel">
+        <h3>Send a message</h3>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" required placeholder="Your full name">
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="name@example.com">
+          </div>
+          <div>
+            <label for="msg">Message</label>
+            <textarea id="msg" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+          </div>
+          <button type="submit">Send message</button>
+          <div class="mono" style="margin-top:8px;color:var(--muted);font-size:13px">I usually reply within 1–2 business days.</div>
+        </form>
+      </aside>
+    </section>
 
-    
-   
-    <p class="about-full" style="font-size: 25px; margin-top: 20px; line-height: 1.8;">
-      Hi, I'm Adhil, a passionate and creative web developer with a strong foundation in HTML, CSS, and JavaScript.
-      I enjoy turning ideas into interactive, user-friendly websites and continuously strive to learn new technologies to improve my craft.
-      Whether it's designing clean, responsive layouts or building dynamic functionality, I take pride in writing efficient and maintainable code.
-      I'm currently exploring modern front-end frameworks and expanding my skills to build full-stack applications.
-      Welcome to my portfolio — feel free to explore my work and get in touch!
-    </p>
-
-    
-    <p class="about-short" style="font-size: 20px; margin-top: 20px; line-height: 1.6; display: none;">
-      I'm Adhil, a web developer passionate about building interactive and responsive websites. Let's connect!
-    </p>
-
-    <a id="dis" href="#contact">
-      Contact Me
-    </a>
+    <footer>
+      <div>Designed & developed by <strong>Mhd Adhil</strong></div>
+      <div class="socials" style="margin-top:12px">
+        <a href="https://www.instagram.com/_adhi_lllhh" target="_blank"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/muhammed-hadil-v-494b7b36b" target="_blank"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/adhil5108" target="_blank"><i class="fa fa-github"></i></a>
+      </div>
+      <div style="margin-top:10px;color:var(--muted);font-size:13px">© <span id="year"></span> Adhil — All rights reserved.</div>
+    </footer>
 
   </div>
-</section>
 
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    menuBtn && menuBtn.addEventListener('click', () => {
+      const nav = document.querySelector('.navlinks');
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!expanded));
+      if(nav) nav.style.display = expanded ? 'none' : 'flex';
+    });
 
-<br>
+    function handleSubmit(e){
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      setTimeout(() => {
+        alert('Thanks — message sent (demo). Replace handleSubmit with your backend call.');
+        e.target.reset();
+        btn.disabled = false;
+        btn.textContent = 'Send message';
+      }, 900);
+    }
 
- 
-<section class="skills" id="skills" style="padding: 80px 20px; ">
-  <h1 class="skills-heading">Skills</h1>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  
-
-  <div class="skills-grid">
-
-    <div class="skill-card">
-      <img src="html (5).png" alt="HTML"><a href="https://en.wikipedia.org/wiki/HTML" target="_blank" class="skill-btn">HTML</a>
-    </div>
-
-    <div class="skill-card">
-      <img src="css-3.png" alt="CSS">
-<a href="https://en.wikipedia.org/wiki/CSS" target="_blank" class="skill-btn">CSS</a></div>
-
-    <div class="skill-card">
-      <img src="java-script.png" alt="JavaScript">
-      <a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank" class="skill-btn">JavaScript</a> </div>
-
-    <div class="skill-card"><img src="bootstrap-logo-black.svg" alt="Bootstrap" height="128px" width="128px">
-      <a href="https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)" target="_blank" class="skill-btn">Bootstrap</a>
-    </div>
-
-  </div>
-</section>
-
-<br><br><br>
-
- 
-<section class="projects" id="Projects" style=" padding: 80px 20px;">
-  <h1 class="projects-title">Projects</h1>
-
-  <div class="project-grid">
-    
-    <div class="project-card">
-      <div class="icon-circle">
-        <img src="business.png" alt="Navbar" height="40px" width="40px"  style="margin-top: 16px;"/>
-      </div>
-      <h2>INFO FINDER</h2>
-      <p>
-       A Character Info Finder is a tool or feature that helps users quickly retrieve detailed information about fictional or real characters. It usually includes traits, backstories, appearances, and roles from books, movies, games, or other media.
-
-      </p>
-      <a href="https://adhil5108.github.io/onepiece/" class="project-link" target="_blank" >Click here to see the project</a>
-    </div>
- 
-
-    <div class="project-card">
-      <div class="icon-circle">
-        <img src="calculator.png" alt="Navbar" height="40px" width="40px"  style="margin-top: 16px;"/>
-      </div>
-      <h2>  CALCULATOR</h2>
-      <p>
-       A calculator is a user-friendly interface element that allows users to perform basic or advanced mathematical operations quickly and efficiently.
-      </p>
-      <a href="https://adhil5108.github.io/calculator/" class="project-link" target="_blank" >Click here to see the project</a>
-    </div>
-
-    
-    <div class="project-card">
-      <div class="icon-circle">
-        <img src="clone.png" alt="Clone Project" height="40px" width="40px"  style="margin-top: 16px;"/>
-      </div>
-      <h2>CLONE</h2>
-      <p>
-        This is a front-end clone of the Goibibo homepage built using HTML and CSS. It focuses on layout structuring and UI replication.
-      </p>
-      <a href="https://adhil5108.github.io/clone/" class="project-link" target="_blank">Click here to see the project</a>
-    </div>
-
-    
-    <div class="project-card">
-      <div class="icon-circle">
-
-        <img src="profile-user.png" alt="Portfolio"  height="40px" width="40px" style="margin-top: 16px;"/>
-      </div>
-      <h2>PORTFOLIO</h2>
-
-      <p>
-        A responsive personal portfolio website showcasing my skills, projects, and contact information. Built using HTML and CSS.
-      </p>
-      <a href="https://adhil5108.github.io/adhil-portfolio/" class="project-link" target="_blank" id="prjct-3">Click here to see the project</a>
-    </div>
-
-    <div class="project-card">
-      <div class="icon-circle">
-        <img src="counter.png" alt="Navbar" height="40px" width="40px"  style="margin-top: 16px;"/>
-      </div>
-      <h2>COUNTER</h2>
-      <p>
-     A counter is a device that tracks and stores the number of times a specific event or process occurs. It is commonly used in digital electronics for counting.
-      </p>
-      <a href="https://adhil5108.github.io/counter/" class="project-link" target="_blank" >Click here to see the project</a>
-    </div>
-
-  </div>
-</section>
-<br><br>
-<section id="contact">
-    <br><br><br>
-
-  <div class="contact-headings">
-    <h1 class="contact-heading">Contact Me!</h1>
-    <h2 class="contact-subheading">
-      Do you need a web developer? I would love to hear from you.
-    </h2>
-  </div>
-
-  
-  <div class="contact-container">
-    
-    <div class="map-info">
-
-      <div class="map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.92310514766!2d76.10917977496254!3d11.119104789051296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba637f0ab2380b7%3A0x475a55d6de061011!2sBridgeon!5e0!3m2!1sen!2sin!4v1723025221314!5m2!1sen!2sin"
-          frameborder="0"
-          allowfullscreen
-        ></iframe>
-      </div>
-
-      <div class="contact-info">
-        <p><strong>Address:</strong><br> Kottakkal, Malappuram, Kerala, India, 676503</p><br>
-<p><strong>Email:</strong> <br>adhil6779@gmail.com</p><br>
-        <p><strong>Phone:</strong> <br> +91-7994105877</p><br>
-      </div>
-    </div>
-
-    
-    <div class="form">
-      <form>
-
-
-
-        <label for="name">NAME</label><input type="text" required id="name" />
-
-
-        <label for="email">E-mail</label><input type="email" required id="email" />
-
-        <label for="number">Number</label> <input type="text" required id="number" />
-
-
-        <label for="address">Address</label>
-    <input type="text" required id="address" />
-
-<label for="msg">Your message</label>
-        <textarea id="msg" rows="5" required></textarea>
-
-        <button type="submit" id="submit" >Submit</button>
-        
-
-    </div>
-  </div>
-</section>
-
-
-
-
-<footer class="footer">
-
-
-  <em>Designed and developed by Mhd Adhil</em>
-
-  <div class="footer-icons">
-    <a href="https://www.instagram.com/_adhi_lllhh?igsh=NzlpbHNreHMwMm9i&utm_source=qr" target="_blank">
-      <img src="instagram.png" alt="Instagram" />
-    </a>
-    <a href="https://www.linkedin.com/in/muhammed-hadil-v-494b7b36b" target="_blank">
-      <img src="linkedin.png" alt="LinkedIn" />
-    </a>
-    <a href="https://github.com/adhil5108" target="_blank">
-      <img src="github.png" alt="GitHub" />
-    </a>
-
-
-  </div>
-</footer>
+    const links = document.querySelectorAll('nav.navlinks a');
+    function onScroll(){
+      const fromTop = window.scrollY + 120;
+      links.forEach(link => {
+        const id = link.getAttribute('href');
+        if(!id || id.charAt(0) !== '#') return;
+        const section = document.querySelector(id);
+        if(!section) return;
+        if(section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop){
+          links.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  </script>
 </body>
 </html>

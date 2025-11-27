@@ -202,7 +202,6 @@
     }
     .avatar:hover{ transform: scale(1.03); border-radius:18px; }
 
-    /* small badges */
     .subrow{ display:flex; gap:12px; margin-top:18px; flex-wrap:wrap; align-items:center; }
     .pill{
       background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
@@ -325,7 +324,6 @@
     }
 
     @media (max-width:720px){
-      
       nav.navlinks{
         display:none;
         position: absolute;
@@ -373,10 +371,50 @@
     
     .fade-in { animation: fadeUp .5s ease both; }
     @keyframes fadeUp { from { opacity:0; transform:translateY(8px);} to { opacity:1; transform:none; } }
+
+
+    /* SUCCESS POPUP */
+    .popup-success {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) scale(0.85);
+      background: rgba(255,255,255,0.05);
+      padding: 28px 36px;
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.65);
+      animation: popIn 0.3s ease forwards;
+      text-align: center;
+      z-index: 9999;
+      display: none;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+      to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+
+    .popup-success h4 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: var(--accent2);
+    }
+
+    .popup-success p {
+      color: var(--muted);
+    }
   </style>
 </head>
 
 <body>
+
+<!-- SUCCESS POPUP -->
+<div class="popup-success" id="successPopup">
+  <h4>✔ Message Sent!</h4>
+  <p>Thanks macha — I’ll reply soon.</p>
+</div>
+
   <div class="wrap">
 
     <!-- NAVBAR -->
@@ -539,25 +577,35 @@
           <p><strong>Phone</strong><br>+91-7994105877</p>
         </div>
 
-        <div style="margin-top:14px" class="socials" aria-hidden="false">
-          <a href="https://www.instagram.com/_adhi_lllhh" target="_blank" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/muhammed-hadil-v-494b7b36b" target="_blank" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-          <a href="https://github.com/adhil5108" target="_blank" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <div style="margin-top:12px" class="socials">
+          <a href="https://www.instagram.com/_adhi_lllhh" target="_blank"><i class="fa fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/muhammed-hadil-v-494b7b36b" target="_blank"><i class="fa fa-linkedin"></i></a>
+          <a href="https://github.com/adhil5108" target="_blank"><i class="fa fa-github"></i></a>
         </div>
 
         <div style="margin-top:16px" class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.92310514766!2d76.10917977496254!3d11.119104789051296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba637f0ab2380b7%3A0x475a55d6de061011!2sBridgeon!5e0!3m2!1sen!2sin!4v1723025221314!5m2!1sen!2sin" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-hidden="false"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.92310514766!2d76.10917977496254!3d11.119104789051296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba637f0ab2380b7%3A0x475a55d6de061011!2sBridgeon!5e0!3m2!1sen!2sin!4v1723025221314!5m2!1sen!2sin" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
 
       <aside class="contact-panel" aria-labelledby="form-heading">
         <h3 id="form-heading">Send a message</h3>
-        <form class="contact-form" onsubmit="handleSubmit(event)" aria-describedby="form-help">
-          <label for="name">Name</label><input id="name" name="name" required placeholder="Your full name">
-          <label for="email">Email</label><input id="email" name="email" type="email" required placeholder="name@example.com">
-          <label for="msg">Message</label><textarea id="msg" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
-          <button type="submit">Send message</button>
+
+        <!-- YOUR UPDATED CONTACT FORM -->
+        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
           
+          <input type="hidden" name="access_key" value="033c2bc9-f896-4c50-bb4e-cc1d11a5c61e">
+
+          <label for="name">Name</label>
+          <input id="name" name="name" required placeholder="Your full name">
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="name@example.com">
+
+          <label for="msg">Message</label>
+          <textarea id="msg" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+
+          <button type="submit" id="submitBtn">Send message</button>
         </form>
       </aside>
     </section>
@@ -623,22 +671,41 @@
 
     updateActiveLink();
 
-    
-    function handleSubmit(e){
-      e.preventDefault();
-      const btn = e.target.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-      setTimeout(() => {
-        alert('Thanks — message sent (demo). Replace handleSubmit with your backend call.');
-        e.target.reset();
-        btn.disabled = false;
-        btn.textContent = 'Send message';
-      }, 900);
-    }
-
-    
     document.getElementById('year').textContent = new Date().getFullYear();
+
+
+    /* -------- WEB3FORMS SUBMIT HANDLER -------- */
+    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const btn = document.getElementById("submitBtn");
+        const popup = document.getElementById("successPopup");
+        btn.disabled = true;
+        btn.textContent = "Sending...";
+
+        const formData = new FormData(this);
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        if (response.ok) {
+            this.reset();
+            popup.style.display = "block";
+
+            setTimeout(() => {
+                popup.style.display = "none";
+            }, 2000);
+
+            btn.disabled = false;
+            btn.textContent = "Send message";
+        } else {
+            alert("Something went wrong. Try again later!");
+            btn.disabled = false;
+            btn.textContent = "Send message";
+        }
+    });
 
    
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

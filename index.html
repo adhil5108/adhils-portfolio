@@ -1,383 +1,726 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Muhammed Hadil </title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Muhammed Hadil</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-  <link rel="icon" href="cropped_circle_image.png">
+    <link rel="icon" href="cropped_circle_image.png" />
 
-  <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
+    <audio
+      id="successSound"
+      preload="auto"
+      src="iphone_style_custom_ping.wav"
+    ></audio>
 
- <audio id="successSound" preload="auto"
-src="iphone_style_custom_ping.wav">
-</audio>
+    <div
+      class="popup-success"
+      id="successPopup"
+      role="status"
+      aria-live="polite"
+      aria-hidden="true"
+    >
+      <h4>Message Sent!</h4>
+      <p>Thanks — I’ll reply soon.</p>
+    </div>
 
+    <div class="popup-error" id="errorPopup" aria-hidden="true">
+      <h4>Error!</h4>
+      <p>Something went wrong. Please try again.</p>
+    </div>
 
-
-  <div class="popup-success" id="successPopup" role="status" aria-live="polite" aria-hidden="true">
-    <h4> Message Sent!</h4>
-    <p>Thanks — I’ll reply soon.</p>
-  </div>
-
-  <div class="popup-error" id="errorPopup" aria-hidden="true">
-  <h4>Error!</h4>
-  <p>Something went wrong. Please try again.</p>
-</div>
-
-  <div class="wrap">
-
-    <header class="topbar fade-in" role="banner" aria-label="Top navigation">
-      <div class="brand">
-        <img src="cropped_circle_image.png" alt="Adhil avatar" class="brand-avatar" width="48" height="48">
-        <div>
-          <div class="logo">HADIL</div>
-          <div class="mono">Full-Stack Developer</div>
-        </div>
-      </div>
-
-      <nav class="navlinks" id="mainNav" role="navigation" aria-label="Main navigation">
-        <a href="#home" class="active" aria-current="page">Home</a>
-        <a href="#about">About</a>
-        <a href="#techstack">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <button class="menu-toggle" id="menuBtn" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle menu">
-        <i class="fa-solid fa-bars" aria-hidden="true"></i>
-      </button>
-    </header>
-
-    
-    <main id="home" class="hero" role="main">
-      <section class="hero-card fade-in" aria-labelledby="hero-heading">
-        <div class="intro">
-          <h1 id="hero-heading">Hi — I'm <span>Hadil</span></h1>
-          <p class="lead">Full-stack developer building clean interfaces with React and solid backend systems using Java &amp; Spring Boot. I focus on accessible, maintainable code and polished user experiences.</p>
-
-          <div class="subrow">
-            <div class="pill">React • Spring Boot</div>
-            <div class="pill">Postgres • Redis • Docker</div>
+    <div class="wrap">
+      <header class="topbar fade-in" role="banner" aria-label="Top navigation">
+        <div class="brand">
+          <img
+            src="cropped_circle_image.png"
+            alt="Adhil avatar"
+            class="brand-avatar"
+            width="48"
+            height="48"
+          />
+          <div>
+            <div class="logo">HADIL</div>
+            <div class="mono">Full-Stack Developer</div>
           </div>
+        </div>
 
-          <div class="cta" role="group" aria-label="Primary actions">
-            <a href="#projects" class="btn" aria-label="View projects section">View Projects</a>
-            <a href="#contact" class="ghost" aria-label="Open contact form"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Hire me</a>
+        <nav
+          class="navlinks"
+          id="mainNav"
+          role="navigation"
+          aria-label="Main navigation"
+        >
+          <a href="#home" class="active" aria-current="page">Home</a>
+          <a href="#about">About</a>
+          <a href="#techstack">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <button
+          class="menu-toggle"
+          id="menuBtn"
+          aria-expanded="false"
+          aria-controls="mainNav"
+          aria-label="Toggle menu"
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </header>
+
+      <main id="home" class="hero" role="main">
+        <section class="hero-card fade-in" aria-labelledby="hero-heading">
+          <div class="intro">
+            <h1 id="hero-heading">Hi — I'm <span>Hadil</span></h1>
+            <p class="lead">
+              Full-stack developer building clean interfaces with React and
+              solid backend systems using Java &amp; Spring Boot. I focus on
+              accessible, maintainable code and polished user experiences.
+            </p>
+
+            <div class="subrow">
+              <div class="pill">React • Spring Boot</div>
+              <div class="pill">Postgres • Redis • Docker</div>
+            </div>
+
+            <div class="cta" role="group" aria-label="Primary actions">
+              <a href="#projects" class="btn" aria-label="View projects section"
+                >View Projects</a
+              >
+              <a href="#contact" class="ghost" aria-label="Open contact form"
+                ><i class="fa-regular fa-envelope" aria-hidden="true"></i> Hire
+                me</a
+              >
+            </div>
+          </div>
+        </section>
+
+        <aside class="hero-image fade-in">
+          <img
+            src="myimage.png"
+            alt="Portrait of Adhil"
+            class="avatar"
+            loading="eager"
+          />
+        </aside>
+      </main>
+
+      <section id="about" class="about" aria-labelledby="about-heading">
+        <div class="panel fade-in">
+          <h2 id="about-heading">About Me</h2>
+          <p>
+            I'm a Full-Stack Developer with a passion for creating performant UI
+            and rock-solid APIs. My stack centers on React for the frontend and
+            Java + Spring Boot on the backend. I enjoy component-driven design,
+            testable code, and simple UX that scales.
+          </p>
+
+          <p class="muted" style="margin-top: 12px">
+            Currently working on real-world projects as a Frontend & Backend
+            Developer Intern at Bridgeon Solutions.
+          </p>
+
+          <div style="margin-top: 14px">
+            <a href="#contact" class="btn">Let's talk</a>
+          </div>
+        </div>
+
+        <div class="panel fade-in" id="skills">
+          <h2>Key Skills</h2>
+
+          <div class="skills-grid">
+            <div class="skill" aria-label="React skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                alt="React logo"
+              />
+              <b>React</b>
+              <div class="muted" style="font-size: 13px; margin-top: 8px">
+                Hooks, Context, Vite
+              </div>
+            </div>
+
+            <div class="skill" aria-label="Java skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                alt="Java logo"
+              />
+              <b>Java</b>
+              <div class="muted" style="font-size: 13px; margin-top: 8px">
+                Spring Boot, REST
+              </div>
+            </div>
+
+            <div class="skill" aria-label="PostgreSQL skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                alt="PostgreSQL logo"
+              />
+              <b>PostgreSQL</b>
+              <div class="muted" style="font-size: 13px; margin-top: 8px">
+                Schema & Queries
+              </div>
+            </div>
+
+            <div class="skill" aria-label="State management skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg"
+                alt="Redux logo"
+              />
+              <b>State Mgmt</b>
+              <div class="muted" style="font-size: 13px; margin-top: 8px">
+                Redux / Context
+              </div>
+            </div>
+
+            <div class="skill" aria-label="Docker skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                alt="Docker logo"
+              />
+              <b>Docker</b>
+              <div class="muted" style="font-size: 13px; margin-top: 8px">
+                Containers
+              </div>
+            </div>
+
+            <div class="skill" aria-label="Git skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                alt="Git logo"
+              />
+              <b>Git & GitHub</b>
+              <div class="muted" style="font-size: 13px; margin-top: 8px">
+                Versioning
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <aside class="hero-image fade-in">
-      
-        <img
-          src="myimage.png"
-       
-          alt="Portrait of Adhil"
-          class="avatar"
-          loading="eager">
-      </aside>
-    </main>
+      <section
+        id="techstack"
+        class="tech-stack panel fade-in"
+        aria-labelledby="techstack-heading"
+      >
+        <h2 id="techstack-heading">Tech Stack</h2>
+        <p class="muted">Technologies I use to build full-stack applications</p>
 
-    
-    <section id="about" class="about" aria-labelledby="about-heading">
-      <div class="panel fade-in">
-        <h2 id="about-heading">About Me</h2>
-        <p>I'm a Full-Stack Developer with a passion for creating performant UI and rock-solid APIs. My stack centers on React for the frontend and Java + Spring Boot on the backend. I enjoy component-driven design, testable code, and simple UX that scales.</p>
-
-        <p class="muted" style="margin-top:12px;">
-          Currently working on real-world projects as a Frontend & Backend Developer Intern at Bridgeon Solutions.
-        </p>
-
-        <div style="margin-top:14px;">
-          <a href="#contact" class="btn">Let's talk</a>
-        </div>
-      </div>
-
-      <div class="panel fade-in" id="skills">
-        <h2>Key Skills</h2>
-
-        <div class="skills-grid">
-          <div class="skill" aria-label="React skill">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React logo">
-            <b>React</b>
-            <div class="muted" style="font-size:13px;margin-top:8px">Hooks, Context, Vite</div>
-          </div>
-
-          <div class="skill" aria-label="Java skill">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java logo">
-            <b>Java</b>
-            <div class="muted" style="font-size:13px;margin-top:8px">Spring Boot, REST</div>
-          </div>
-
-          <div class="skill" aria-label="PostgreSQL skill">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL logo">
-            <b>PostgreSQL</b>
-            <div class="muted" style="font-size:13px;margin-top:8px">Schema & Queries</div>
-          </div>
-
-          <div class="skill" aria-label="State management skill">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" alt="Redux logo">
-            <b>State Mgmt</b>
-            <div class="muted" style="font-size:13px;margin-top:8px">Redux / Context</div>
-          </div>
-
-          <div class="skill" aria-label="Docker skill">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker logo">
-            <b>Docker</b>
-            <div class="muted" style="font-size:13px;margin-top:8px">Containers</div>
-          </div>
-
-          <div class="skill" aria-label="Git skill">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git logo">
-            <b>Git & GitHub</b>
-            <div class="muted" style="font-size:13px;margin-top:8px">Versioning</div>
+        <div class="stack-category">
+          <h3>Frontend</h3>
+          <div class="stack-grid">
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                alt="React"
+              />
+              <div class="stack-label">React</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                alt="JavaScript"
+              />
+              <div class="stack-label">JavaScript</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                alt="HTML5"
+              />
+              <div class="stack-label">HTML5</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                alt="CSS3"
+              />
+              <div class="stack-label">CSS3</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg"
+                alt="Tailwind CSS"
+              />
+              <div class="stack-label">Tailwind CSS</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+                alt="Bootstrap"
+              />
+              <div class="stack-label">Bootstrap</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg"
+                alt="Redux"
+              />
+              <div class="stack-label">Redux</div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section id="techstack" class="tech-stack panel fade-in" aria-labelledby="techstack-heading">
-      <h2 id="techstack-heading">Tech Stack</h2>
-      <p class="muted">Technologies I use to build full-stack applications</p>
-
-      
-      <div class="stack-category">
-        <h3>Frontend</h3>
-        <div class="stack-grid">
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
-            <div class="stack-label">React</div>
-          </div>
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-            <div class="stack-label">JavaScript</div>
-          </div>
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-            <div class="stack-label">HTML5</div>
-          </div>
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-            <div class="stack-label">CSS3</div>
-          </div>
-          <div class="stack-item">
-            <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS">
-            <div class="stack-label">Tailwind CSS</div>
-          </div>
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">
-            <div class="stack-label">Bootstrap</div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="stack-category">
-        <h3>Backend</h3>
-        <div class="stack-grid">
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-            <div class="stack-label">Java</div>
-          </div>
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot">
-            <div class="stack-label">Spring Boot</div>
-          </div>
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Security">
-            <div class="stack-label">Spring Security</div>
-          </div>
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Data JPA">
-            <div class="stack-label">Spring Data JPA</div>
+        <div class="stack-category">
+          <h3>Backend</h3>
+          <div class="stack-grid">
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                alt="Java"
+              />
+              <div class="stack-label">Java</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+                alt="Spring Boot"
+              />
+              <div class="stack-label">Spring Boot</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+                alt="Spring Security"
+              />
+              <div class="stack-label">Spring Security</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+                alt="Spring Data JPA"
+              />
+              <div class="stack-label">Spring Data JPA</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg"
+                alt="Hibernate"
+              />
+              <div class="stack-label">Hibernate</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg"
+                alt="Maven"
+              />
+              <div class="stack-label">Maven</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://www.vectorlogo.zone/logos/jsonwebtoken/jsonwebtoken-icon.svg"
+                alt="JWT"
+              />
+              <div class="stack-label">JWT</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="stack-category">
-        <h3>Database</h3>
-        <div class="stack-grid">
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
-            <div class="stack-label">PostgreSQL</div>
-          </div>
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis">
-            <div class="stack-label">Redis</div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="stack-category">
-        <h3>Testing</h3>
-        <div class="stack-grid">
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/junit/junit-original.svg" alt="JUnit">
-            <div class="stack-label">JUnit</div>
-          </div>
-          <div class="stack-item">
-            <img src="data:image/svg+xml;utf8,%3Csvg%20width%3D%22256%22%20height%3D%22256%22%20viewBox%3D%220%200%20256%20256%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Crect%20width%3D%22256%22%20height%3D%22256%22%20rx%3D%2240%22%20fill%3D%22%234CAF50%22%3E%3C%2Frect%3E%0A%20%20%3Cpath%20d%3D%22M187%2092c-10%200-19%206-23%2015-5-9-14-15-24-15-16%200-29%2014-29%2031%200%2036%2052%2066%2053%2067l1%201%201-1c1-1%2053-31%2053-67%200-17-13-31-30-31zm-47%2086c-10-7-44-30-44-55%200-13%2010-23%2022-23%209%200%2017%206%2020%2015l2%206%202-6c3-9%2011-15%2020-15%2012%200%2022%2010%2022%2023%200%2025-34%2048-44%2055z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E%0A" alt="Mockito">
-            <div class="stack-label">Mockito</div>
-          </div>
-          
-          <div class="stack-item">
-  <img 
-  style="border-radius: 50%;width:44px;height:44px"
-    alt="Integration Testing"
-    src="data:image/png;base64,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" />
-  <div class="stack-label">Integration Testing</div>
-</div>
-
-        </div>
-      </div>
-
-      <div class="stack-category">
-        <h3>Tools & Others</h3>
-        <div class="stack-grid">
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
-            <div class="stack-label">Docker</div>
-          </div>
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
-            <div class="stack-label">Git</div>
-          </div>
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-            <div class="stack-label">GitHub</div>
-          </div>
-          <div class="stack-item">
-            <img src="https://icon.icepanel.io/Technology/svg/GitHub-Actions.svg" alt="GitHub Actions">
-            <div class="stack-label">GitHub Actions</div>
-          </div>
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman">
-            <div class="stack-label">Postman</div>
-          </div>
-          <div class="stack-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg" alt="Swagger">
-            <div class="stack-label">Swagger</div>
+        <div class="stack-category">
+          <h3>Database</h3>
+          <div class="stack-grid">
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                alt="PostgreSQL"
+              />
+              <div class="stack-label">PostgreSQL</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
+                alt="Redis"
+              />
+              <div class="stack-label">Redis</div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    
-    <section id="projects" class="projects fade-in" aria-labelledby="projects-heading">
-      <h2 id="projects-heading" style="margin-top:26px">Selected Projects</h2>
+        <div class="stack-category">
+          <h3>Testing</h3>
+          <div class="stack-grid">
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/junit/junit-original.svg"
+                alt="JUnit"
+              />
+              <div class="stack-label">JUnit</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="data:image/svg+xml;utf8,%3Csvg%20width%3D%22256%22%20height%3D%22256%22%20viewBox%3D%220%200%20256%20256%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Crect%20width%3D%22256%22%20height%3D%22256%22%20rx%3D%2240%22%20fill%3D%22%234CAF50%22%3E%3C%2Frect%3E%0A%20%20%3Cpath%20d%3D%22M187%2092c-10%200-19%206-23%2015-5-9-14-15-24-15-16%200-29%2014-29%2031%200%2036%2052%2066%2053%2067l1%201%201-1c1-1%2053-31%2053-67%200-17-13-31-30-31zm-47%2086c-10-7-44-30-44-55%200-13%2010-23%2022-23%209%200%2017%206%2020%2015l2%206%202-6c3-9%2011-15%2020-15%2012%200%2022%2010%2022%2023%200%2025-34%2048-44%2055z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E%0A"
+                alt="Mockito"
+              />
+              <div class="stack-label">Mockito</div>
+            </div>
 
-      <div class="projects-grid">
-        <article class="project">
-          <div class="icon" aria-hidden="true"><img src="https://img.icons8.com/fluency/96/000000/shopping-cart.png" alt=""></div>
-          <h3>TimeLux — Watch E-Commerce</h3>
-          <p>React + Tailwind e-commerce with filtering, cart &amp; checkout. Smooth UX for buyers.</p>
-          <a class="link" href="https://github.com/adhil5108/E-commerce.git" target="_blank" rel="noopener">View project →</a>
-        </article>
-
-        <article class="project">
-          <div class="icon" aria-hidden="true"><img src="https://img.icons8.com/fluency/96/000000/food-cart.png" alt=""></div>
-          <h3>Foodie Express</h3>
-          <p>Food delivery UI built with React, offering restaurant browsing, cart flow, order status.</p>
-          <a class="link" href="https://github.com/adhil5108/Foodie-Express.git" target="_blank" rel="noopener">View project →</a>
-        </article>
-
-        <article class="project">
-          <div class="icon" aria-hidden="true"><img src="https://img.icons8.com/fluency/96/000000/blog.png" alt=""></div>
-          <h3>Echo & Ink — Blog App</h3>
-          <p>Blog platform showing posts, categories; clean UI and smooth navigation.</p>
-          <a class="link" href="https://github.com/adhil5108/blog-app.git" target="_blank" rel="noopener">View project →</a>
-        </article>
-
-        <article class="project">
-          <div class="icon" aria-hidden="true"><img src="https://img.icons8.com/fluency/96/000000/administrative-tools.png" alt=""></div>
-          <h3>Task Manager API</h3>
-          <p>Spring Boot REST API with JWT auth, task CRUD, categories, and tests included.</p>
-          <a class="link" href="https://github.com/adhil5108/spring-task-management.git" target="_blank" rel="noopener">View repo →</a>
-        </article>
-
-        <article class="project">
-          <div class="icon" aria-hidden="true"><img src="https://img.icons8.com/fluency/96/000000/shopping-cart.png" alt=""></div>
-          <h3>E-Commerce Backend</h3>
-          <p>PostgreSQL + Redis + Docker backend for e-commerce, with admin APIs and caching.</p>
-          <a class="link" href="https://github.com/adhil5108/E-commerce-MVP-java.git" target="_blank" rel="noopener">View repo →</a>
-        </article>
-      </div>
-    </section>
-
-    
-    <h1 style="margin-top:40px; margin-bottom:14px; color:#fff; text-align:left;">
-  Contact Me
-</h1>
-
-    <section id="contact" class="contact-wrap fade-in" aria-labelledby="contact-heading">
-      
-      <div class="contact-panel">
-        <h3 id="contact-heading">Contact Me</h3>
-        <p class="muted">Need a web developer? I’d love to hear about your project — feel free to reach out!</p>
-
-        <div class="contact-info" style="margin-top:12px">
-          <p><strong>Address</strong><br>Kottakkal, Malappuram, Kerala, India</p>
-          <p><strong>Email</strong><br><a href="mailto:muhammedhadilv@gmail.com" style="color:var(--accent2);text-decoration:none">muhammedhadilv@gmail.com</a></p>
-          <p><strong>Phone</strong><br><a href="tel:+917994105877" style="color:var(--muted);text-decoration:none">+91-7994105877</a></p>
+            <div class="stack-item">
+              <img
+                style="border-radius: 50%; width: 44px; height: 44px"
+                alt="Integration Testing"
+                src="data:image/png;base64,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"
+              />
+              <div class="stack-label">Integration Testing</div>
+            </div>
+          </div>
         </div>
 
-        <div style="margin-top:12px" class="socials" aria-label="Social links">
-          <a href="https://www.instagram.com/_adhi_lllhh" target="_blank" rel="noopener"><i class="fa-brands fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a>
-          <a href="https://www.linkedin.com/in/muhammed-hadil-v-494b7b36b" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a>
-          <a href="https://github.com/adhil5108" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i><span class="sr-only">GitHub</span></a>
+        <div class="stack-category">
+          <h3>Tools & Others</h3>
+          <div class="stack-grid">
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                alt="Docker"
+              />
+              <div class="stack-label">Docker</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                alt="Git"
+              />
+              <div class="stack-label">Git</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                alt="GitHub"
+              />
+              <div class="stack-label">GitHub</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://icon.icepanel.io/Technology/svg/GitHub-Actions.svg"
+                alt="GitHub Actions"
+              />
+              <div class="stack-label">GitHub Actions</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
+                alt="Postman"
+              />
+              <div class="stack-label">Postman</div>
+            </div>
+            <div class="stack-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg"
+                alt="Swagger"
+              />
+              <div class="stack-label">Swagger</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="projects"
+        class="projects fade-in"
+        aria-labelledby="projects-heading"
+      >
+        <h2 id="projects-heading" style="margin-top: 26px">
+          Selected Projects
+        </h2>
+
+        <div class="projects-grid">
+          <article class="project">
+            <div class="icon" aria-hidden="true">
+              <img
+                src="https://img.icons8.com/fluency/96/000000/shopping-cart.png"
+                alt=""
+              />
+            </div>
+            <h3>TimeLux — Watch E-Commerce</h3>
+            <p>
+              React + Tailwind e-commerce with filtering, cart &amp; checkout.
+              Smooth UX for buyers.
+            </p>
+            <a
+              class="link"
+              href="https://github.com/adhil5108/E-commerce.git"
+              target="_blank"
+              rel="noopener"
+              >View project →</a
+            >
+          </article>
+
+          <article class="project">
+            <div class="icon" aria-hidden="true">
+              <img
+                src="https://img.icons8.com/fluency/96/000000/food-cart.png"
+                alt=""
+              />
+            </div>
+            <h3>Foodie Express</h3>
+            <p>
+              Food delivery UI built with React, offering restaurant browsing,
+              cart flow, order status.
+            </p>
+            <a
+              class="link"
+              href="https://github.com/adhil5108/Foodie-Express.git"
+              target="_blank"
+              rel="noopener"
+              >View project →</a
+            >
+          </article>
+
+          <article class="project">
+            <div class="icon" aria-hidden="true">
+              <img
+                src="https://img.icons8.com/fluency/96/000000/blog.png"
+                alt=""
+              />
+            </div>
+            <h3>Echo & Ink — Blog App</h3>
+            <p>
+              Blog platform showing posts, categories; clean UI and smooth
+              navigation.
+            </p>
+            <a
+              class="link"
+              href="https://github.com/adhil5108/blog-app.git"
+              target="_blank"
+              rel="noopener"
+              >View project →</a
+            >
+          </article>
+
+          <article class="project">
+            <div class="icon" aria-hidden="true">
+              <img
+                src="https://img.icons8.com/fluency/96/000000/administrative-tools.png"
+                alt=""
+              />
+            </div>
+            <h3>Task Manager API</h3>
+            <p>
+              Spring Boot REST API with JWT auth, task CRUD, categories, and
+              tests included.
+            </p>
+            <a
+              class="link"
+              href="https://github.com/adhil5108/spring-task-management.git"
+              target="_blank"
+              rel="noopener"
+              >View repo →</a
+            >
+          </article>
+
+          <article class="project">
+            <div class="icon" aria-hidden="true">
+              <img
+                src="https://img.icons8.com/fluency/96/000000/shopping-cart.png"
+                alt=""
+              />
+            </div>
+            <h3>E-Commerce Backend</h3>
+            <p>
+              PostgreSQL + Redis + Docker backend for e-commerce, with admin
+              APIs and caching.
+            </p>
+            <a
+              class="link"
+              href="https://github.com/adhil5108/E-commerce-MVP-java.git"
+              target="_blank"
+              rel="noopener"
+              >View repo →</a
+            >
+          </article>
+        </div>
+      </section>
+
+      <h1
+        style="
+          margin-top: 40px;
+          margin-bottom: 14px;
+          color: #fff;
+          text-align: left;
+        "
+      >
+        Contact Me
+      </h1>
+
+      <section
+        id="contact"
+        class="contact-wrap fade-in"
+        aria-labelledby="contact-heading"
+      >
+        <div class="contact-panel">
+          <h3 id="contact-heading">Contact Me</h3>
+          <p class="muted">
+            Need a web developer? I’d love to hear about your project — feel
+            free to reach out!
+          </p>
+
+          <div class="contact-info" style="margin-top: 12px">
+            <p>
+              <strong>Address</strong><br />Kottakkal, Malappuram, Kerala, India
+            </p>
+            <p>
+              <strong>Email</strong><br /><a
+                href="mailto:muhammedhadilv@gmail.com"
+                style="color: var(--accent2); text-decoration: none"
+                >muhammedhadilv@gmail.com</a
+              >
+            </p>
+            <p>
+              <strong>Phone</strong><br /><a
+                href="tel:+917994105877"
+                style="color: var(--muted); text-decoration: none"
+                >+91-7994105877</a
+              >
+            </p>
+          </div>
+
+          <div
+            style="margin-top: 12px"
+            class="socials"
+            aria-label="Social links"
+          >
+            <a
+              href="https://www.instagram.com/_adhi_lllhh"
+              target="_blank"
+              rel="noopener"
+              ><i class="fa-brands fa-instagram" aria-hidden="true"></i
+              ><span class="sr-only">Instagram</span></a
+            >
+            <a
+              href="https://www.linkedin.com/in/muhammed-hadil-v-494b7b36b"
+              target="_blank"
+              rel="noopener"
+              ><i class="fa-brands fa-linkedin" aria-hidden="true"></i
+              ><span class="sr-only">LinkedIn</span></a
+            >
+            <a
+              href="https://github.com/adhil5108"
+              target="_blank"
+              rel="noopener"
+              ><i class="fa-brands fa-github" aria-hidden="true"></i
+              ><span class="sr-only">GitHub</span></a
+            >
+          </div>
+
+          <div style="margin-top: 16px" class="map" aria-hidden="true">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.92310514766!2d76.10917977496254!3d11.119104789051296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba637f0ab2380b7%3A0x475a55d6de061011!2sBridgeon!5e0!3m2!1sen!2sin!4v1723025221314!5m2!1sen!2sin"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Bridgeon location"
+            ></iframe>
+          </div>
         </div>
 
-        <div style="margin-top:16px" class="map" aria-hidden="true">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.92310514766!2d76.10917977496254!3d11.119104789051296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba637f0ab2380b7%3A0x475a55d6de061011!2sBridgeon!5e0!3m2!1sen!2sin!4v1723025221314!5m2!1sen!2sin" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bridgeon location"></iframe>
+        <aside class="contact-panel" aria-labelledby="form-heading">
+          <h3 id="form-heading">Send a message</h3>
+
+          <form
+            class="contact-form"
+            id="contactForm"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            novalidate
+          >
+            <input
+              type="hidden"
+              name="access_key"
+              value="033c2bc9-f896-4c50-bb4e-cc1d11a5c61e"
+            />
+
+            <label for="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              required
+              placeholder="Your full name"
+              autocomplete="name"
+            />
+
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder="name@example.com"
+              autocomplete="email"
+            />
+
+            <label for="msg">Message</label>
+            <textarea
+              id="msg"
+              name="message"
+              rows="5"
+              required
+              placeholder="Send me a message..."
+              autocomplete="off"
+            ></textarea>
+
+            <button type="submit" id="submitBtn" class="btn">
+              Send message
+            </button>
+          </form>
+        </aside>
+      </section>
+
+      <footer role="contentinfo">
+        <div>Designed &amp; developed by <strong> Hadil</strong></div>
+        <div class="socials" style="margin-top: 12px">
+          <a
+            href="https://www.instagram.com/_adhi_lllhh"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+            ><img
+              src="https://img.icons8.com/ios-filled/24/9aa6b8/instagram-new.png"
+              alt="Instagram"
+          /></a>
+          <a
+            href="https://www.linkedin.com/in/muhammed-hadil-v-494b7b36b"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+            ><img
+              src="https://img.icons8.com/material-outlined/24/9aa6b8/linkedin--v1.png"
+              alt="LinkedIn"
+          /></a>
+          <a
+            href="https://github.com/adhil5108"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+            ><img
+              src="https://img.icons8.com/material-sharp/24/9aa6b8/github.png"
+              alt="GitHub"
+          /></a>
         </div>
-      </div>
+        <div style="margin-top: 10px; color: var(--muted); font-size: 13px">
+          © <span id="year"></span> Hadil — All rights reserved.
+        </div>
+      </footer>
+    </div>
 
-      <aside class="contact-panel" aria-labelledby="form-heading">
-        <h3 id="form-heading">Send a message</h3>
-
-        
-        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
-          <input type="hidden" name="access_key" value="033c2bc9-f896-4c50-bb4e-cc1d11a5c61e">
-
-          <label for="name">Name</label>
-          <input id="name" name="name" required placeholder="Your full name" autocomplete="name">
-
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required placeholder="name@example.com" autocomplete="email">
-
-          <label for="msg">Message</label>
-          <textarea id="msg" name="message" rows="5" required placeholder="Send me a message..." autocomplete="off"></textarea>
-
-          <button type="submit" id="submitBtn" class="btn">Send message</button>
-        </form>
-      </aside>
-    </section>
-
-   
-    <footer role="contentinfo">
-      <div>Designed &amp; developed by <strong> Hadil</strong></div>
-      <div class="socials" style="margin-top:12px">
-        <a href="https://www.instagram.com/_adhi_lllhh" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://img.icons8.com/ios-filled/24/9aa6b8/instagram-new.png" alt="Instagram"></a>
-        <a href="https://www.linkedin.com/in/muhammed-hadil-v-494b7b36b" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="https://img.icons8.com/material-outlined/24/9aa6b8/linkedin--v1.png" alt="LinkedIn"></a>
-        <a href="https://github.com/adhil5108" target="_blank" rel="noopener" aria-label="GitHub"><img src="https://img.icons8.com/material-sharp/24/9aa6b8/github.png" alt="GitHub"></a>
-      </div>
-      <div style="margin-top:10px;color:var(--muted);font-size:13px">© <span id="year"></span> Hadil — All rights reserved.</div>
-    </footer>
-
-  </div>
-
-  <script src="script.js" defer></script>
-</body>
+    <script src="script.js" defer></script>
+  </body>
 </html>

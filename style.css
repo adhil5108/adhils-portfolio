@@ -462,7 +462,7 @@ a:focus, button:focus, input:focus, textarea:focus {
 }
 .popup-error {
   position: fixed;
-  top: 20px;
+  top: calc(var(--nav-height) + 20px);
   right: 20px;
   background: #ff4d4d;
   color: white;

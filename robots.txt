@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://adhil5108.github.io/adhils-portfolio/sitemap.xml

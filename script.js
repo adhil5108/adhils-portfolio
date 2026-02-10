@@ -1,10 +1,13 @@
+document.addEventListener("DOMContentLoaded", function () {
 
-/* MOBILE NAV */
+
 
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
-menuBtn.addEventListener("click",()=>{
+if(menuBtn && navLinks){
+
+menuBtn.addEventListener("click", () => {
 
 navLinks.classList.toggle("active");
 
@@ -14,40 +17,54 @@ navLinks.classList.contains("active")
 : '<i class="fa-solid fa-bars"></i>';
 
 });
-window.addEventListener("load",()=>{
 
-document.querySelector(".hero-content").animate(
+}
 
+
+
+
+const hero = document.querySelector(".hero-content");
+
+if(hero){
+hero.animate(
 [
 {opacity:0, transform:"translateY(40px)"},
 {opacity:1, transform:"translateY(0)"}
 ],
-
 {
 duration:1200,
 easing:"cubic-bezier(.16,1,.3,1)",
 fill:"forwards"
 }
-
 );
+}
 
-});
 
 
-/* PREMIUM SMOOTH SCROLL */
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 anchor.addEventListener("click", function(e){
 
-e.preventDefault();
+const href = this.getAttribute("href");
+if(!href || href === "#") return;
 
-const target = document.querySelector(this.getAttribute("href"));
-
+const target = document.querySelector(href);
 if(!target) return;
 
+e.preventDefault();
+
+
+if(navLinks && navLinks.classList.contains("active")){
+navLinks.classList.remove("active");
+menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+}
+
+
+const navHeight = document.querySelector(".navbar")?.offsetHeight || 70;
+
 window.scrollTo({
-top: target.offsetTop - 70, 
+top: target.offsetTop - navHeight,
 behavior:"smooth"
 });
 
@@ -63,12 +80,16 @@ const btn = document.getElementById("submitBtn");
 const successPopup = document.getElementById("successPopup");
 const errorPopup = document.getElementById("errorPopup");
 
+if(form){
+
 form.addEventListener("submit", async function(e){
 
 e.preventDefault();
 
+if(btn){
 btn.disabled = true;
 btn.textContent = "Sending...";
+}
 
 const data = new FormData(form);
 
@@ -80,28 +101,27 @@ body:data
 });
 
 if(res.ok){
-
 form.reset();
 showPopup(successPopup);
-
 }else{
-
 showPopup(errorPopup);
-
 }
 
 }catch{
-
 showPopup(errorPopup);
-
 }
 
+if(btn){
 btn.disabled = false;
 btn.textContent = "Send Message →";
+}
 
 });
 
+}
 
+
+/* ================= POPUP ================= */
 
 function showPopup(popup){
 
@@ -116,5 +136,11 @@ popup.classList.remove("show");
 }
 
 
-document.getElementById("year").textContent =
-new Date().getFullYear();
+
+
+const year = document.getElementById("year");
+if(year){
+year.textContent = new Date().getFullYear();
+}
+
+});

@@ -68,6 +68,14 @@ font-family:'Cormorant Garamond',serif;
 font-size:26px;
 letter-spacing:4px;
 }
+.logo{
+text-decoration:none;
+color:inherit;
+cursor:pointer;
+}
+.logo:hover{
+opacity:.8;
+}
 
 /* LINKS */
 

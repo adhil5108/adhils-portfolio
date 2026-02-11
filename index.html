@@ -60,24 +60,24 @@
 
     <header class="navbar">
       <div class="nav-inner">
-        <div class="logo">HADIL</div>
+        <a href="#home" class="logo">HADIL</a>
 
         <nav class="links" id="navLinks">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#education">Education</a>
+  <a href="#about">About</a>
+  <a href="#system">Systems</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-          <a href="#contact">Contact</a>
-        </nav>
 
         <div class="menu-btn" id="menuBtn">
           <i class="fa-solid fa-bars"></i>
         </div>
       </div>
     </header>
+
+
     <section class="hero" id="home">
       <div class="hero-content">
         <div class="hero-label">FULL STACK ENGINEER</div>
@@ -126,90 +126,56 @@
       </div>
     </section>
 
-    <section class="experience" id="experience">
-      <div class="experience-container">
-        <div class="experience-header">
-          <h2>Experience</h2>
+<section class="system" id="system">
+      <div class="system-container">
+        <div class="system-header">
+          <div class="section-label">SYSTEMS IN PROGRESS</div>
+          <h2>Data Bridge</h2>
+
+          <div class="build-status">Architecting · MVP in Progress</div>
         </div>
 
-        <div class="experience-item">
-          <div class="experience-meta">
-            <span>Full Stack Developer Intern</span>
-            <span>Bridgeon Solutions · Present</span>
-          </div>
+        <p class="system-sub">
+          Designing a distributed migration platform for reliably transforming
+          large-scale NoSQL datasets into relational systems.
+        </p>
 
-          <p class="experience-desc">
-            Currently working as a Full Stack Developer Intern, building
-            production-style applications while gaining hands-on experience with
-            modern backend systems, API design, and scalable web architecture.
-          </p>
+        <p class="system-desc">
+          Built using a microservice architecture with Kafka-based event
+          streaming, the system decouples orchestration from execution to
+          support fault-tolerant, batch-driven migrations at scale.
+        </p>
 
-          <ul class="experience-points">
-            <li>
-              Develop responsive web applications using modern frontend
-              technologies.
-            </li>
-            <li>
-              Design and build backend services following scalable architecture
-              principles.
-            </li>
-            <li>
-              Work with relational databases and implement efficient data
-              models.
-            </li>
-            <li>
-              Apply clean code practices, Git workflows, and structured project
-              development.
-            </li>
-            <li>Continuously strengthen end-to-end system design skills.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="skills" id="skills">
-      <div class="skills-container">
-        <div class="skills-header">
-          <div class="section-label">SKILLS</div>
-          <h2>Technical Expertise</h2>
+        <div class="system-highlights">
+          <span>Microservices Architecture</span>
+          <span>Kafka Event Streaming</span>
+          <span>Distributed Workers</span>
+          <span>Schema Translation Engine</span>
+          <span>Redis Job Tracking</span>
+          <span>Fault Tolerant</span>
         </div>
 
-        <div class="skills-grid">
-          <div class="skill-group">
-            <h3>Backend Engineering</h3>
-            <ul>
-              <li>Java / Spring Boot</li>
-              <li>REST API Design</li>
-              <li>Microservices Architecture</li>
-              <li>PostgreSQL</li>
-              <li>Redis</li>
-              <li>Docker</li>
-            </ul>
-          </div>
+        <div class="system-links">
+          <a
+            href="https://github.com/adhil5108/Data-Bridge.git"
+            target="_blank"
+          >
+            View Repository →
+          </a>
 
-          <div class="skill-group">
-            <h3>Frontend Development</h3>
-            <ul>
-              <li>React</li>
-              <li>JavaScript (ES6+)</li>
-              <li>HTML / CSS</li>
-              <li>Responsive Design</li>
-            </ul>
-          </div>
-
-          <div class="skill-group">
-            <h3>Engineering Practices</h3>
-            <ul>
-              <li>System Design</li>
-              <li>Scalable Architecture</li>
-              <li>Performance Optimization</li>
-              <li>Clean Code</li>
-              <li>Git / Version Control</li>
-            </ul>
-          </div>
+          <a
+            href="https://www.notion.so/Data-Bridge-NoSQL-to-SQL-Migration-Engine-high-level-diagram-2fb8d183879b80469d79e79ecc0cc9a8?source=copy_link"
+            target="_blank"
+          >
+            Architecture Diagram →
+          </a>
         </div>
       </div>
     </section>
+
+   
+
+    
 
     <section class="projects" id="projects">
       <div class="projects-container">
@@ -304,49 +270,98 @@
         </div>
       </div>
     </section>
-    <section class="system">
-      <div class="system-container">
-        <div class="system-header">
-          <div class="section-label">SYSTEMS IN PROGRESS</div>
-          <h2>Data Bridge</h2>
-
-          <div class="build-status">Architecting · MVP in Progress</div>
+   
+<section class="skills" id="skills">
+      <div class="skills-container">
+        <div class="skills-header">
+          <div class="section-label">SKILLS</div>
+          <h2>Technical Expertise</h2>
         </div>
 
-        <p class="system-sub">
-          Designing a distributed migration platform for reliably transforming
-          large-scale NoSQL datasets into relational systems.
-        </p>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Backend Engineering</h3>
+            <ul>
+              <li>Java </li>
+              <li> Spring Boot</li>
+               <li>Spring Security</li>
+               <li>Reactive Programming (WebFlux)</li>
+              <li>REST API Design</li>
+              <li>Microservices Architecture</li>
+              <li>PostgreSQL</li>
+              <li>Redis</li>
+              <li>Docker</li>
+              <li>Apache Kafka</li>
+             
+              <li>CI/CD</li>
+              
+            </ul>
+          </div>
 
-        <p class="system-desc">
-          Built using a microservice architecture with Kafka-based event
-          streaming, the system decouples orchestration from execution to
-          support fault-tolerant, batch-driven migrations at scale.
-        </p>
+          <div class="skill-group">
+            <h3>Frontend Development</h3>
+            <ul>
+              <li>React</li>
+              
+              <li>JavaScript (ES6+)</li>
+              <li>HTML </li>
+              <li>CSS</li>
+              <li>Tailwind CSS</li>
+              <li>Responsive Design</li>
+            </ul>
+          </div>
 
-        <div class="system-highlights">
-          <span>Microservices Architecture</span>
-          <span>Kafka Event Streaming</span>
-          <span>Distributed Workers</span>
-          <span>Schema Translation Engine</span>
-          <span>Redis Job Tracking</span>
-          <span>Fault Tolerant</span>
+          <div class="skill-group">
+            <h3>Engineering Practices</h3>
+            <ul>
+              <li>System Design</li>
+              <li>Scalable Architecture</li>
+              <li>Performance Optimization</li>
+              <li>Clean Code</li>
+              <li>Git / Version Control</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <section class="experience" id="experience">
+      <div class="experience-container">
+        <div class="experience-header">
+          <h2>Experience</h2>
         </div>
 
-        <div class="system-links">
-          <a
-            href="https://github.com/adhil5108/Data-Bridge.git"
-            target="_blank"
-          >
-            View Repository →
-          </a>
+        <div class="experience-item">
+          <div class="experience-meta">
+            <span>Full Stack Developer Intern</span>
+            <span>Bridgeon Solutions · Present</span>
+          </div>
 
-          <a
-            href="https://www.notion.so/Data-Bridge-NoSQL-to-SQL-Migration-Engine-high-level-diagram-2fb8d183879b80469d79e79ecc0cc9a8?source=copy_link"
-            target="_blank"
-          >
-            Architecture Diagram →
-          </a>
+          <p class="experience-desc">
+            Currently working as a Full Stack Developer Intern, building
+            production-style applications while gaining hands-on experience with
+            modern backend systems, API design, and scalable web architecture.
+          </p>
+
+          <ul class="experience-points">
+            <li>
+              Develop responsive web applications using modern frontend
+              technologies.
+            </li>
+            <li>
+              Design and build backend services following scalable architecture
+              principles.
+            </li>
+            <li>
+              Work with relational databases and implement efficient data
+              models.
+            </li>
+            <li>
+              Apply clean code practices, Git workflows, and structured project
+              development.
+            </li>
+            <li>Continuously strengthen end-to-end system design skills.</li>
+          </ul>
         </div>
       </div>
     </section>
